@@ -59,7 +59,7 @@ public partial class _BrowseName_ : IEncodeable, IJsonEncodeable
 
     private void Initialize()
     {
-        EncodingMask = (uint)_ClassName_Fields.None;
+        EncodingMask = _ClassName_Fields.None;
         // ListOfFieldInitializers
     }
     #endregion
@@ -67,7 +67,7 @@ public partial class _BrowseName_ : IEncodeable, IJsonEncodeable
     #region Public Properties
     /// <remarks />
     [DataMember(Name = "EncodingMask", IsRequired = true, Order = 0)]
-    public uint EncodingMask { get; set; }
+    public _ClassName_Fields EncodingMask { get; set; }
 
     // ListOfProperties
     #endregion
@@ -98,7 +98,7 @@ public partial class _BrowseName_ : IEncodeable, IJsonEncodeable
 
     protected virtual void OnWriteEncodingMask(IEncoder encoder)
     {
-        encoder.WriteUInt32(nameof(EncodingMask), EncodingMask);        
+        encoder.WriteUInt32(nameof(EncodingMask), (uint)EncodingMask);        
     }
 
     protected virtual void OnEncodeFields(IEncoder encoder)
@@ -120,7 +120,7 @@ public partial class _BrowseName_ : IEncodeable, IJsonEncodeable
 
     protected virtual void OnReadEncodingMask(IDecoder decoder) 
     {
-        EncodingMask = decoder.ReadUInt32(nameof(EncodingMask));
+        EncodingMask = (_ClassName_Fields)decoder.ReadUInt32(nameof(EncodingMask));
     }
 
     protected virtual void OnDecodeFields(IDecoder decoder)

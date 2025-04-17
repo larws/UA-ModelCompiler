@@ -71,7 +71,7 @@ public partial class _BrowseName_ : _BaseType_
 
     protected override void OnReadEncodingMask(IDecoder decoder) 
     {
-        EncodingMask = decoder.ReadUInt32(nameof(EncodingMask));
+        EncodingMask = (_ClassName_Fields)decoder.ReadUInt32(nameof(EncodingMask));
     }
 
     protected override void OnDecodeFields(IDecoder decoder)
